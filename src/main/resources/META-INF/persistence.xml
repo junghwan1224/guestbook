@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="jpaGuestbook">
+
+        <!-- true - 엔티티 class 선언 필요 -->
+        <!-- false - 엔티티 class 자동 검색 -->
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+
+            <!-- JPA 표준 속성(필수 속성) -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/todo"/>
+
+            <!-- 옵션 -->
+            <!-- hibernate 전용 속성 -->
+            <!-- db 방언 - db 고유의 기능 사용 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+            <!-- 옵션 -->
+            <!-- 실행한 SQL을 출력 -->
+            <property name="hibernate.show_sql" value="true" />
+            <!-- SQL을 보기 좋게 정렬 -->
+            <property name="hibernate.format_sql" value="true" />
+            <!-- 쿼리 출력 시 주석도 함께 출력 -->
+            <property name="hibernate.use_sql_comments" value="true" />
+            <!-- JPA 표준에 맞는 새로운 키 생성 전략을 사용 -->
+            <property name="hibernate.id.new_generator_mappings" value="true" />
+
+            <!-- 스키마 자동 생성 -->
+            <!-- create : drop + create / 개발 초기 단계 / 테스트 -->
+            <!-- create-drop : drop + create + drop / 프로그램 종료시 삭제 / 자동화된 테스트 -->
+            <!-- update : 변경 사항만 수정 / 개발 초기 단계 / 테스트 서버 -->
+            <!-- validate : 변경 사항 발생시 경고를 남기고 실행하지 않음 / 테스트 서버 / 스테이징 또는 운영 단계 -->
+            <!-- none: 자동 생성기능을 사용하지 않을 때/유효하지 않은 값 입력시 / 위 4가지 옵션을 제외한 값 / 스테이징 또는
+                운영 단계 -->
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+
+            <!-- 테이블 컬럼 표시 방법 대소문자를 _ 로 변경 firstName -> first_name -->
+            <!-- @Column 속성을 명시적으로 사용하지 않을 때 컬럼 이름 정의 방법 -->
+            <!-- 5.0 아래 버전 -->
+            <!-- <property name="hibernate.ejb.naming_strategy" -->
+            <!-- value="org.hibernate.cfg.ImprovedNamingStrategy" /> -->
+            <!-- 5.0 이상 사용자 정의 클래스 등록 -->
+<!--            <property name="hibernate.physical_naming_strategy"-->
+<!--                      value="royleej9.study.jpa.SnakeCaseNamingStrategy" />-->
+        </properties>
+    </persistence-unit>
+
+</persistence>
