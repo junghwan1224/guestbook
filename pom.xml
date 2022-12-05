@@ -20,6 +20,10 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<spring.version> 4.3.14.RELEASE</spring.version>
 		<jackson2.version>2.8.6</jackson2.version>
+		<!-- JPA, 하이버네이트 버전 -->
+		<hibernate.version>4.3.10.Final</hibernate.version>
+		<!-- 데이터베이스 버전 -->
+		<h2db.version>1.4.187</h2db.version>
 	</properties>
 
 	<dependencies>
@@ -97,6 +101,19 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- JPA, 하이버네이트 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- H2 데이터베이스 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2db.version}</version>
 		</dependency>
 	</dependencies>
 
